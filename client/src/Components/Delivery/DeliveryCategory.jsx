@@ -38,7 +38,7 @@ const DeliveryLgCard = ({ image, title }) => {
   );
 };
 
-const DeliveryCatagory = (props) => {
+const DeliveryCategory = (props) => {
   return (
     <>
       <DeliverySmCard {...props} />
@@ -47,4 +47,4 @@ const DeliveryCatagory = (props) => {
   );
 };
 
-export default DeliveryCatagory;
+export default DeliveryCategory;

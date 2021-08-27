@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 
 // components
-import NutritionCarousalCard from "./NutritionCarousalCard";
+import NutritionHeroCarousalCard from "./NutritionHeroCarousalCard";
 import { NextArrow, PrevArrow } from "../CarousalArrow";
-const NutritionCarousal = () => {
+const NutritionHeroCarousal = () => {
   const [heroBanners, setHeroBanners] = useState([
     "https://b.zmtcdn.com/web/nutrition/assets/47fb421f35ca12ad3111e3d99d1737571620108828.png",
     "https://b.zmtcdn.com/web/nutrition/assets/0a8f2dad65904b89178905213efe886c1620108711.png",
@@ -25,10 +25,10 @@ const NutritionCarousal = () => {
   return (
     <Slider {...settings}>
       {heroBanners.map((image) => (
-        <NutritionCarousalCard image={image} />
+        <NutritionHeroCarousalCard image={image} />
       ))}
     </Slider>
   );
 };
 
-export default NutritionCarousal;
+export default NutritionHeroCarousal;

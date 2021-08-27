@@ -54,7 +54,7 @@ const Delivery = () => {
       <div className="flex justify-between flex-wrap">
         {restaurantList.map((restaurant) => (
           <RestaurantCard
-            {...restaurant} key={restaurant._id} />
+            {...restaurant} key={restaurant._id} whereIsthisres="asf"  />
         ))}
       </div>
     </>

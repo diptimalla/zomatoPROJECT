@@ -9,11 +9,11 @@ const Router = express.Router();
 
 /*
 Route   |  /
-Des     |  send a mail
-Params  |  none
-Access  |  Public
-Method  |  POST  
-body    |   from, to, subject, text  
+Des     | send a mail
+Params  | none
+Access  | Public
+Method  | POST  
+body    | from, to, subject, text  
 */
 Router.post("/", async (req, res) => {
   try {
@@ -25,7 +25,7 @@ Router.post("/", async (req, res) => {
 
     await sendMail.messages().send({ from, to, subject, text });
 
-    return res.status(200).json({ status: "success sent" });
+    return  res.status(200).json({ status: "success sent" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

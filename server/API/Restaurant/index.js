@@ -59,6 +59,46 @@ Router.get("/:_id", async (req, res) => {
    }
  });
  
+ /*
+Route   |  /restaurants/new
+Des     |  add new restaurant
+params  |  none
+access  |  public
+method  |  POST
+*/
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const newRetaurant = await RestaurantModel.create(req.body.restaurantData);
+    return res.json({ restaurants: newRetaurant });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+
+/*
+Route   |  PATCH /restaurants/update
+Des     |  update exisitng restaurant data
+params  |  none
+access  |  Private
+method  |  Patch
+*/
+Router.patch("/update", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const updatedRestaurant = await RestaurantModel.findByIdAndUpdate(
+      req.body.retaurantData._id,
+      { $set: req.body.retaurantData },
+      { new: true }
+    );
+    if (!updatedRestaurant)
+      return res.status(404).json({ restaurants: "Restaurant Not Found!!!" });
+
+    return res.json({ restaurants: updatedRestaurant });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 
  /*
 Route   |  /search

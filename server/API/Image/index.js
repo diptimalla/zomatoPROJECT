@@ -15,6 +15,22 @@ const upload = multer({ storage });
 
 const Router= express.Router();
 
+/*
+Route   |  /
+Des     |  Get image details
+params  |  _id
+access  |  public
+method  |  GET
+*/
+Router.get("/:_id", async (req, res) => {
+  try {
+    const image = await ImageModel.findById(req.params._id);
+
+    return res.json({ image });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
 
 
 /*
